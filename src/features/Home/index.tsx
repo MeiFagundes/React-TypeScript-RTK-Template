@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { Button, Card, Grid, Typography } from '@mui/material';
 import { useHistory } from 'react-router';
-import Rotas from '../../common/enum/Rotas';
+import Routes from '../../common/enum/Routes';
 
 const Home: FC = () => {
   const history = useHistory();
@@ -20,16 +20,16 @@ const Home: FC = () => {
           <Grid container justifyContent="center" alignItems="center" p={4} spacing={2}>
             <Grid item xs={12}>
               <Typography variant="h5" align="center">
-                Bem-vinda a Home!
+                Welcome Home!
               </Typography>
             </Grid>
             <Grid item>
-              <Button color="secondary" variant="contained" onClick={() => history.push(Rotas.EXEMPLO_BANCO)}>
-                Banco
+              <Button color="secondary" variant="contained" onClick={() => history.push(Routes.BANK_EXAMPLE)}>
+                Bank
               </Button>
             </Grid>
             <Grid item>
-              <Button color="primary" variant="contained" onClick={() => history.push(Rotas.EXEMPLO_POSTS)}>
+              <Button color="primary" variant="contained" onClick={() => history.push(Routes.POSTS_EXAMPLE)}>
                 Posts
               </Button>
             </Grid>

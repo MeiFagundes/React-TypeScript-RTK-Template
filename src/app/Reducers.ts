@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
-import bancoReducer from '../features/ExemploBanco/BancoSlice';
-import postsReducer from '../features/ExemploPosts/PostsSlice';
+import bankReducer from '../features/BankExample/BankSlice';
+import postsReducer from '../features/PostsExample/PostsSlice';
 
 const reducers = combineReducers({
-  exemploBanco: bancoReducer,
-  exemploPosts: postsReducer,
+  bankExample: bankReducer,
+  postsExample: postsReducer,
 });
 
 export default reducers;

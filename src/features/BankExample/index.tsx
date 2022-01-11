@@ -3,17 +3,17 @@ import { Button, Card, Grid, Typography, Box } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { State } from '../../app/Reducers';
-import { depositar, sacar, reiniciar } from './BancoSlice';
+import { deposit, withdraw, reset } from './BankSlice';
 
-const Banco: FC = () => {
+const Bank: FC = () => {
   const dispatch = useDispatch();
-  const saldo = useSelector((state: State) => state.exemploBanco.saldo);
+  const balance = useSelector((state: State) => state.bankExample.balance);
 
   const actions = bindActionCreators(
     {
-      depositar,
-      sacar,
-      reiniciar,
+      deposit,
+      withdraw,
+      reset,
     },
     dispatch,
   );
@@ -30,29 +30,29 @@ const Banco: FC = () => {
       >
         <Grid item>
           <Typography variant="h4" align="center">
-            Saldo:
+            Balance:
           </Typography>
-          <Card className="card-banco">
+          <Card className="card-bank">
             <Box m={2}>
               <Grid container justifyContent="center" alignItems="center" spacing={2}>
                 <Grid item xs={12} alignItems="center">
                   <Typography variant="h1" align="center">
-                    {saldo < 0 && '-'}R$ {Math.abs(saldo)}
+                    {balance < 0 && '-'}$ {Math.abs(balance)}
                   </Typography>
                 </Grid>
                 <Grid item>
-                  <Button variant="contained" onClick={() => actions.depositar(10)}>
-                    Depositar
+                  <Button variant="contained" onClick={() => actions.deposit(10)}>
+                    Deposit
                   </Button>
                 </Grid>
                 <Grid item>
-                  <Button variant="contained" onClick={() => actions.sacar(10)}>
-                    Sacar
+                  <Button variant="contained" onClick={() => actions.withdraw(10)}>
+                    Withdraw
                   </Button>
                 </Grid>
                 <Grid item>
-                  <Button variant="contained" disabled={saldo === 0} onClick={() => actions.reiniciar()}>
-                    Reiniciar
+                  <Button variant="contained" disabled={balance === 0} onClick={() => actions.reset()}>
+                    Reset
                   </Button>
                 </Grid>
               </Grid>
@@ -64,4 +64,4 @@ const Banco: FC = () => {
   );
 };
 
-export default Banco;
+export default Bank;

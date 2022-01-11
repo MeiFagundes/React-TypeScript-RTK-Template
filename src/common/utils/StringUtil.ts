@@ -1,25 +1,15 @@
-export const obterPalavraInicialMaiuscula = (palavra: string): string => {
-  return palavra.charAt(0).toUpperCase() + palavra.slice(1);
+export const capitalizeWord = (word: string): string => {
+  return word.charAt(0).toUpperCase() + word.slice(1);
 };
 
-export const obterFraseInicialMaiuscula = (frase: string): string => {
-  const palavras = frase.split(' ');
-  return palavras
-    .map((palavra) =>
-      palavraDeveFicarMaiuscula(palavra) ? obterPalavraInicialMaiuscula(palavra) : palavra.toLowerCase(),
-    )
-    .join(' ');
+export const capitalizeSentence = (sentence: string): string => {
+  const wordList = sentence.split(' ');
+  return wordList.map((word) => (shouldWordBeCapitalized(word) ? capitalizeWord(word) : word.toLowerCase())).join(' ');
 };
 
-export const palavraDeveFicarMaiuscula = (palavra: string): boolean => {
-  const palavraMaiuscula = palavra.toUpperCase();
-  return !(
-    palavraMaiuscula === 'DO' ||
-    palavraMaiuscula === 'DOS' ||
-    palavraMaiuscula === 'DA' ||
-    palavraMaiuscula === 'DAS' ||
-    palavraMaiuscula === 'DE'
-  );
+export const shouldWordBeCapitalized = (word: string): boolean => {
+  const uppercaseWord = word.toUpperCase();
+  return !(uppercaseWord === 'OF');
 };
 
 export const isEmail = (email: string): boolean => {

@@ -1,2 +1,2 @@
-window.REACT_APP_NOME_AMBIENTE = "Local";
-window.REACT_APP_API = "";
+window.REACT_APP_ENVIRONMENT_NAME = 'Local';
+window.REACT_APP_API = '';

@@ -1,14 +1,14 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import AsyncThunkStatus from '../../common/enum/AsyncThunkStatus';
-import { PostExemploModel } from '../../models/PostExemploModel';
-import PostsExemploRepository from '../../repositories/PostExemploRepository';
+import { PostExampleModel } from '../../models/PostExampleModel';
+import PostsExampleRepository from '../../repositories/PostsExampleRepository';
 
-export const obterPosts = createAsyncThunk('posts/getPosts', async () => {
-  return (await PostsExemploRepository.getPostsExemplo()).data;
+export const getPosts = createAsyncThunk('posts/getPosts', async () => {
+  return (await PostsExampleRepository.getExamplePosts()).data;
 });
 
 export interface PostState {
-  posts: PostExemploModel[];
+  posts: PostExampleModel[];
   status: AsyncThunkStatus;
   error?: string;
 }
@@ -20,17 +20,17 @@ const postsSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(obterPosts.pending, (state: PostState): PostState => {
+    builder.addCase(getPosts.pending, (state: PostState): PostState => {
       return { ...state, status: AsyncThunkStatus.pending };
     });
-    builder.addCase(obterPosts.fulfilled, (state: PostState, action): PostState => {
+    builder.addCase(getPosts.fulfilled, (state: PostState, action): PostState => {
       return {
         ...state,
         status: AsyncThunkStatus.fulfilled,
         posts: action.payload,
       };
     });
-    builder.addCase(obterPosts.rejected, (state: PostState, action): PostState => {
+    builder.addCase(getPosts.rejected, (state: PostState, action): PostState => {
       return { ...state, status: AsyncThunkStatus.rejected, error: action.error.message };
     });
   },

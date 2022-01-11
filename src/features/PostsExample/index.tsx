@@ -2,17 +2,17 @@ import React, { FC, useEffect } from 'react';
 import { Grid, Typography } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
 import { State } from '../../app/Reducers';
-import { obterPosts } from './PostsSlice';
-import { PostExemploModel } from '../../models/PostExemploModel';
+import { getPosts } from './PostsSlice';
+import { PostExampleModel } from '../../models/PostExampleModel';
 import AsyncThunkStatus from '../../common/enum/AsyncThunkStatus';
-import PostExemploCard from './views/PostExemploCard';
+import PostExampleCard from './views/PostExampleCard';
 
 const Posts: FC = () => {
   const dispatch = useDispatch();
-  const postState = useSelector((state: State) => state.exemploPosts);
+  const postState = useSelector((state: State) => state.postsExample);
 
   useEffect(() => {
-    dispatch(obterPosts());
+    dispatch(getPosts());
   }, [dispatch]);
 
   return (
@@ -28,16 +28,16 @@ const Posts: FC = () => {
         >
           <Grid item>
             <Typography variant="h4" align="center">
-              Carregando posts
+              Loading posts
             </Typography>
           </Grid>
         </Grid>
       )}
       <Grid container spacing={4} p={4}>
         {postState.status === AsyncThunkStatus.fulfilled &&
-          postState.posts.map((post: PostExemploModel) => (
+          postState.posts.map((post: PostExampleModel) => (
             <Grid item xs={4}>
-              <PostExemploCard post={post} />
+              <PostExampleCard post={post} />
             </Grid>
           ))}
       </Grid>

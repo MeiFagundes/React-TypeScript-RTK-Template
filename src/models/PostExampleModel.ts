@@ -1,4 +1,4 @@
-export interface PostExemploModel {
+export interface PostExampleModel {
   userId: number;
   id: number;
   title: string;
