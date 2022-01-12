@@ -2,12 +2,12 @@ import React, { FC } from 'react';
 import { Button, Card, Grid, Typography, Box } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { State } from '../../app/Reducers';
+import { RootState } from '../../app/Store';
 import { deposit, withdraw, reset } from './BankSlice';
 
 const Bank: FC = () => {
   const dispatch = useDispatch();
-  const balance = useSelector((state: State) => state.bankExample.balance);
+  const balance = useSelector((state: RootState) => state.bankExample.balance);
 
   const actions = bindActionCreators(
     {

@@ -1,15 +1,15 @@
 import React, { FC, useEffect } from 'react';
 import { Grid, Typography } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
-import { State } from '../../app/Reducers';
+import { RootState } from '../../app/Store';
 import { getPosts } from './PostsSlice';
-import { PostExampleModel } from '../../models/PostExampleModel';
+import { PostExampleModel } from '../../repositories/models/PostExampleModel';
 import AsyncThunkStatus from '../../common/enum/AsyncThunkStatus';
-import PostExampleCard from './views/PostExampleCard';
+import PostExampleCard from './components/PostExampleCard';
 
 const Posts: FC = () => {
   const dispatch = useDispatch();
-  const postState = useSelector((state: State) => state.postsExample);
+  const postState = useSelector((state: RootState) => state.postsExample);
 
   useEffect(() => {
     dispatch(getPosts());

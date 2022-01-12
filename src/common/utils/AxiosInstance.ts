@@ -1,8 +1,8 @@
-import Env from '../../config/Env';
+import Env from '../../config/env';
 import axios from 'axios';
 
 const axiosInstance = axios.create({
-  baseURL: Env.REACT_APP_API,
+  baseURL: Env().API_URL,
 });
 
 export default axiosInstance;

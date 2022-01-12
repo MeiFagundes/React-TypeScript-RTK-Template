@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { Box } from '@mui/system';
 import { Card, Typography } from '@mui/material';
-import { PostExampleModel } from '../../../models/PostExampleModel';
+import { PostExampleModel } from '../../../repositories/models/PostExampleModel';
 import { capitalizeWord } from '../../../common/utils/StringUtil';
 
 export interface PostExampleCardProps {

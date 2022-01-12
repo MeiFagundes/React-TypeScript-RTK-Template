@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import AsyncThunkStatus from '../../common/enum/AsyncThunkStatus';
-import { PostExampleModel } from '../../models/PostExampleModel';
+import { PostExampleModel } from '../../repositories/models/PostExampleModel';
 import PostsExampleRepository from '../../repositories/PostsExampleRepository';
 
 export const getPosts = createAsyncThunk('posts/getPosts', async () => {

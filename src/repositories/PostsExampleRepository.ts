@@ -1,4 +1,4 @@
-import { PostExampleModel } from '../models/PostExampleModel';
+import { PostExampleModel } from './models/PostExampleModel';
 import axios from '../common/utils/AxiosInstance';
 
 class PostsExampleRepository {

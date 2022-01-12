@@ -5,7 +5,6 @@
     {{descricaoAplicacao}}
   </center>
 
-
 <br />
 
 <!-- Shields do Projeto -->
@@ -32,7 +31,7 @@
       </ul>
     </li>
     <li>
-      <a href="#desenvolvimento">Desenvolvimento</a>
+      <a href="#dev">Dev</a>
       <ul>
         <li><a href="#extensões-para-o-visual-studio-code">Extensões para o Visual Studio Code</a></li>
       </ul>
@@ -49,10 +48,9 @@
   </ol>
 </details>
 
-
 ## Sobre a aplicação
 
-Descrição sobre o propósito da aplicação e sobre os problemas que ela se propõe a resolver. Você também pode listar brevemente as funcionalidades principais para depois detalhá-las em uma seção *Como Utilizar*. Se necessário, adicione imagens ou GIFs para ilustrar melhor.
+Descrição sobre o propósito da aplicação e sobre os problemas que ela se propõe a resolver. Você também pode listar brevemente as funcionalidades principais para depois detalhá-las em uma seção _Como Utilizar_. Se necessário, adicione imagens ou GIFs para ilustrar melhor.
 
 ### Principais Tecnologias
 
@@ -64,7 +62,7 @@ Lista das principais tecnologias e frameworks utilizados no projeto. Ideal ter u
 - [MUI (Material UI)](https://mui.com/)
 - [Axios](https://www.npmjs.com/package/axios)
 
-## Desenvolvimento
+## Dev
 
 ### Extensões para o Visual Studio Code
 
@@ -81,7 +79,7 @@ Extensões recomendadas:
 
 ## Build local
 
-Instruções sobre como executar a aplicação em um ambiente de desenvolvimento local.
+Instruções sobre como executar a aplicação em um ambiente de dev local.
 
 ### Pré-Requisitos
 
@@ -109,4 +107,3 @@ Forneça instruções para que as pessoas saibam como contribuir para o projeto.
 ## Licença
 
 Informe a licença de códido utilizada pelo projeto.
-
