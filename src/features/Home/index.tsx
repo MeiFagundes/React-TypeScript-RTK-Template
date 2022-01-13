@@ -33,6 +33,11 @@ const Home: FC = () => {
                 Posts
               </Button>
             </Grid>
+            <Grid item>
+              <Button color="secondary" variant="outlined" onClick={() => history.push(Routes.EXCHANGE_RATES_EXAMPLE)}>
+                Coinbase
+              </Button>
+            </Grid>
           </Grid>
         </Card>
       </Grid>

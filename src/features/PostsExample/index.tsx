@@ -18,14 +18,7 @@ const Posts: FC = () => {
   return (
     <>
       {postState.status === AsyncThunkStatus.pending && (
-        <Grid
-          container
-          direction="column"
-          justifyContent="center"
-          alignItems="center"
-          xs={12}
-          style={{ minHeight: '100vh' }}
-        >
+        <Grid container direction="column" justifyContent="center" alignItems="center" style={{ minHeight: '100vh' }}>
           <Grid item>
             <Typography variant="h4" align="center">
               Loading posts

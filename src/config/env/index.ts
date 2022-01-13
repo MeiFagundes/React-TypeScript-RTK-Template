@@ -18,7 +18,8 @@ export const environments: EnvironmentList = {
 export interface EnvironmentConfiguration {
   ENVIRONMENT_NAME: EnvironmentCode;
   PUBLIC_URL: string;
-  API_URL: string;
+  REST_API_URL: string;
+  GRAPHQL_API_URL: string;
 }
 
 export default function Env(): EnvironmentConfiguration {

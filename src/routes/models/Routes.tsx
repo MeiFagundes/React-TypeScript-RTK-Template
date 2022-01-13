@@ -4,6 +4,7 @@ import { Routes } from './IRoutes';
 import Bank from '../../features/BankExample';
 import Posts from '../../features/PostsExample';
 import Home from '../../features/Home';
+import ExchangeRatesExample from '../../features/ExchangeRatesExample';
 
 const routes: Routes = {
   home: {
@@ -24,6 +25,13 @@ const routes: Routes = {
     routePath: RoutesEnum.POSTS_EXAMPLE,
     component: Posts,
     name: 'Posts Example',
+    icon: homeIcon,
+    public: true,
+  },
+  exchangeRatesExample: {
+    routePath: RoutesEnum.EXCHANGE_RATES_EXAMPLE,
+    component: ExchangeRatesExample,
+    name: 'Exchange Rates Example',
     icon: homeIcon,
     public: true,
   },
