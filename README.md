@@ -1,109 +1,111 @@
-<!-- Logo/Banner do Projeto -->
+<!-- project Logo/Banner -->
 
-  <h1 align="center">{{nomeAplicacao}}</h1>
+  <h1 align="center">{{applicationName}}</h1>
   <center>
-    {{descricaoAplicacao}}
+    {{applicationDescription}}
   </center>
-
-<br />
-
-<!-- Shields do Projeto -->
-
-<div align="center">
-  <a href="https://github.com/dtidigitalcrafters/readme-template/graphs/contributors" alt="Contributors">
-        <img src="https://img.shields.io/github/contributors/dtidigitalcrafters/readme-template?color=green&style=for-the-badge" /></a>
-  <a href="https://github.com/dtidigitalcrafters/readme-template/issues" alt="Issues">
-        <img src="https://img.shields.io/github/issues-raw/dtidigitalcrafters/readme-template?style=for-the-badge" /></a>
-  <a href="#" alt="Build Status">
-        <img src="https://img.shields.io/static/v1?label=build&message=Passando&color=success&style=for-the-badge" /></a>
-</div>
-<br />
-
-## Índice
+## Index
 
 <details open="open">
-  <summary>Índice</summary>
+  <summary>Index</summary>
   <ol>
     <li>
-      <a href="#sobre-a-aplicação">Sobre a aplicação</a>
+      <a href="#about-the-application">About the application</a>
       <ul>
-        <li><a href="#principais-tecnologias">Principais tecnologias</a></li>
+        <li><a href="#main-technologies">Main technologies</a></li>
       </ul>
     </li>
     <li>
       <a href="#dev">Dev</a>
       <ul>
-        <li><a href="#extensões-para-o-visual-studio-code">Extensões para o Visual Studio Code</a></li>
+        <li><a href="#extensions-for-visual-studio-code">Extensions for Visual Studio Code</a></li>
       </ul>
     </li>
     <li>
-      <a href="#build-local">Build Local</a>
+      <a href="#local-build">Local build</a>
       <ul>
-        <li><a href="#pré-requisitos-1">Pré Requisitos</a></li>
-        <li><a href="#como-executar">Como executar</a></li>
+        <li><a href="#prerequisite">Prerequisite</a></li>
+        <li><a href="#how-to-run">How to run</a></li>
+        <li><a href="#how-to-add-a-graphql-query-or-mutation">How to add a GraphQL query or mutation</a></li>
       </ul>
     </li>
-    <li><a href="#como-contribuir">Como contribuir</a></li>
-    <li><a href="#licença">Licença</a></li>
   </ol>
 </details>
 
-## Sobre a aplicação
+## About the application
 
-Descrição sobre o propósito da aplicação e sobre os problemas que ela se propõe a resolver. Você também pode listar brevemente as funcionalidades principais para depois detalhá-las em uma seção _Como Utilizar_. Se necessário, adicione imagens ou GIFs para ilustrar melhor.
+Description about the purpose of the application and the problems it aims to solve. You can also briefly list the main features and then detail them in a _How to Use_ section. If necessary, add images or GIFs to further illustrate.
 
-### Principais Tecnologias
+### Main Technologies
 
-Lista das principais tecnologias e frameworks utilizados no projeto. Ideal ter um link para o site da documentação ou para o repositório correspondente. Por exemplo:
+List of the main technologies and frameworks used in the project.
 
 - [ReactJS](https://reactjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
 - [Redux](https://redux.js.org/)
 - [Redux Toolkit](https://redux-toolkit.js.org)
+- [RTK Query](https://redux-toolkit.js.org/rtk-query/overview)
 - [MUI (Material UI)](https://mui.com/)
 - [Axios](https://www.npmjs.com/package/axios)
 
 ## Dev
 
-### Extensões para o Visual Studio Code
+### Extensions for Visual Studio Code
 
-Extensões necessárias:
+Required:
 
 - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
 - [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
 
-Extensões recomendadas:
+Recommended:
 
 - [Visual Studio IntelliCode](https://marketplace.visualstudio.com/items?itemName=VisualStudioExptTeam.vscodeintellicode)
-- [Bracket Pair Colorizer](https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer)
+- [GraphQL](https://marketplace.visualstudio.com/items?itemName=GraphQL.vscode-graphql)
 - [yarn](https://marketplace.visualstudio.com/items?itemName=gamunu.vscode-yarn)
 
-## Build local
+## Local build
 
-Instruções sobre como executar a aplicação em um ambiente de dev local.
+Instructions on how to run the application in a local development environment.
 
-### Pré-Requisitos
+### Prerequisite
 
 - [Node.js](https://nodejs.org/en/download/)
 
-### Como executar
+### How to run
 
-1. Clone o repositório
+1. Clone the repository
    ```sh
-   git clone https://dti-aliancacamaleao@dev.azure.com/dti-aliancacamaleao/Projeto%20Metamorfose/_git/ReactTypescriptTemplate
+   git clone https://RHIM@dev.azure.com/RHIM/Smart%20Tool/_git/smart-tool-frontend-v2
    ```
-2. Installe as dependências
+2. Install the dependencies
    ```sh
    yarn install
    ```
-3. Inicialize a aplicação
+3. Start the application
    ```sh
    yarn start
    ```
 
-## Como contribuir
+### How to add a GraphQL query or mutation
 
-Forneça instruções para que as pessoas saibam como contribuir para o projeto. Você pode colocar um link para um guia de contribuição, por exemplo.
+1. Save the query to a **.graphql** file at _src/repositories/queries_ or the mutation at _src/repositories/mutations_
 
-## Licença
+2. Run the following script to generate the **.generated.ts** file
 
-Informe a licença de códido utilizada pelo projeto.
+   ```sh
+   yarn g
+   ```
+
+3. Add the reducer from the generated class to the store at _src/app/Store.ts_
+
+   ```typescript
+   import { api as getExchangeRatesAPI } from '../repositories/queries/GetExchangeRates.generated';
+
+   const store = configureStore({
+     reducer: {
+       (...)
+       [getExchangeRatesAPI.reducerPath]: getExchangeRatesAPI.reducer,
+     },
+     (...)
+   });
+   ```
