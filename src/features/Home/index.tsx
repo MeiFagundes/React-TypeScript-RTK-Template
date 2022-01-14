@@ -35,7 +35,7 @@ const Home: FC = () => {
             </Grid>
             <Grid item>
               <Button color="secondary" variant="outlined" onClick={() => history.push(Routes.EXCHANGE_RATES_EXAMPLE)}>
-                Coinbase
+                Exchange Rates
               </Button>
             </Grid>
           </Grid>

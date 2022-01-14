@@ -14,7 +14,14 @@ const ExchangeRates: FC = () => {
         </Grid>
       </Grid>
     );
-  if (isError) return <p>Error :(</p>;
+  if (isError)
+    return (
+      <Grid container spacing={4} p={4}>
+        <Grid item xs={2}>
+          <Typography variant="h3">Error! :(</Typography>
+        </Grid>
+      </Grid>
+    );
 
   return (
     <>
