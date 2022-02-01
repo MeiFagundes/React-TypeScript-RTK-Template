@@ -1,10 +1,12 @@
+import { api } from '../common/utils/RestApiService';
 import { PostExampleModel } from './models/PostExampleModel';
-import axios from '../common/utils/AxiosInstance';
 
-class PostsExampleRepository {
-  getExamplePosts = async () => {
-    return axios.get<PostExampleModel[]>(`https://jsonplaceholder.typicode.com/posts/`);
-  };
-}
+const injectedRtkApi = api.injectEndpoints({
+  endpoints: (build) => ({
+    getPosts: build.query<PostExampleModel[], void>({
+      query: () => `posts/`,
+    }),
+  }),
+});
 
-export default new PostsExampleRepository();
+export { injectedRtkApi as api };

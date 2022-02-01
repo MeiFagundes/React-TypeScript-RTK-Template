@@ -1,6 +1,6 @@
 import * as Types from '../../generated/graphql';
 
-import { api } from '../../common/utils/RTKQueryInstance';
+import { api } from '../../common/utils/GraphQlApiService';
 export type GetExchangeRatesQueryVariables = Types.Exact<{ [key: string]: never; }>;
 
 

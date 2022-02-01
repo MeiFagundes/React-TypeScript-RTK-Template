@@ -1,16 +1,16 @@
 import { ThunkAction, Action, configureStore } from '@reduxjs/toolkit';
 import thunk from 'redux-thunk';
 import bancoReducer from '../features/BankExample/BankSlice';
-import postsReducer from '../features/PostsExample/PostsSlice';
+import { api as getPostsAPI } from '../repositories/PostsExampleRepository';
 import { api as getExchangeRatesAPI } from '../repositories/queries/GetExchangeRates.generated';
 
 const store = configureStore({
   reducer: {
     bankExample: bancoReducer,
-    postsExample: postsReducer,
     [getExchangeRatesAPI.reducerPath]: getExchangeRatesAPI.reducer,
+    [getPostsAPI.reducerPath]: getPostsAPI.reducer,
   },
-  middleware: [thunk, getExchangeRatesAPI.middleware],
+  middleware: [thunk, getExchangeRatesAPI.middleware, getPostsAPI.middleware],
   devTools: process.env.NODE_ENV !== 'production',
 });
 

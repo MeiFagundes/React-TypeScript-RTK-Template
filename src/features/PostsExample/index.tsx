@@ -1,23 +1,16 @@
-import React, { FC, useEffect } from 'react';
+import React, { FC } from 'react';
 import { Grid, Typography } from '@mui/material';
-import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../../app/Store';
-import { getPosts } from './PostsSlice';
 import { PostExampleModel } from '../../repositories/models/PostExampleModel';
-import AsyncThunkStatus from '../../common/enum/AsyncThunkStatus';
 import PostExampleCard from './components/PostExampleCard';
+import { api } from '../../repositories/PostsExampleRepository';
 
 const Posts: FC = () => {
-  const dispatch = useDispatch();
-  const postState = useSelector((state: RootState) => state.postsExample);
+  const Posts: FC = () => {
+    const { data, isLoading, isError } = api.endpoints.getPosts.useQuery();
 
-  useEffect(() => {
-    dispatch(getPosts());
-  }, [dispatch]);
-
-  return (
-    <>
-      {postState.status === AsyncThunkStatus.pending && (
+    localStorage.setItem('exchangeRates', JSON.stringify(data));
+    if (isLoading)
+      return (
         <Grid container direction="column" justifyContent="center" alignItems="center" style={{ minHeight: '100vh' }}>
           <Grid item>
             <Typography variant="h4" align="center">
@@ -25,15 +18,32 @@ const Posts: FC = () => {
             </Typography>
           </Grid>
         </Grid>
-      )}
-      <Grid container spacing={4} p={4}>
-        {postState.status === AsyncThunkStatus.fulfilled &&
-          postState.posts.map((post: PostExampleModel) => (
+      );
+    if (isError)
+      return (
+        <Grid container spacing={4} p={4}>
+          <Grid item xs={5}>
+            <Typography variant="h3">Error! :(</Typography>
+          </Grid>
+        </Grid>
+      );
+
+    return (
+      <>
+        <Grid container spacing={4} p={4}>
+          {data?.map((post: PostExampleModel) => (
             <Grid item xs={4}>
               <PostExampleCard post={post} />
             </Grid>
           ))}
-      </Grid>
+        </Grid>
+      </>
+    );
+  };
+
+  return (
+    <>
+      <Posts />
     </>
   );
 };

@@ -46,7 +46,6 @@ List of the main technologies and frameworks used in the project.
 - [Redux Toolkit](https://redux-toolkit.js.org)
 - [RTK Query](https://redux-toolkit.js.org/rtk-query/overview)
 - [MUI (Material UI)](https://mui.com/)
-- [Axios](https://www.npmjs.com/package/axios)
 
 ## Dev
 

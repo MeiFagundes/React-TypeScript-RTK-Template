@@ -26,7 +26,8 @@ export default function Env(): EnvironmentConfiguration {
   const hostname = window && window.location && window.location.hostname;
   let environmentConfiguration: EnvironmentConfiguration;
 
-  if (hostname.startsWith('smarttool.template.com')) {
+  if (hostname.startsWith('localhost')) {
+    //TODO: Change to prod environment url
     environmentConfiguration = getProdEnvironmentConfiguration();
   } else {
     environmentConfiguration = getDevEnvironmentConfiguration();
