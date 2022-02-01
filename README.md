@@ -74,7 +74,7 @@ Instructions on how to run the application in a local development environment.
 
 1. Clone the repository
    ```sh
-   git clone https://RHIM@dev.azure.com/RHIM/Smart%20Tool/_git/smart-tool-frontend-v2
+   git clone https://github.com/MeiFagundes/React-TypeScript-RTK-Template.git
    ```
 2. Install the dependencies
    ```sh
